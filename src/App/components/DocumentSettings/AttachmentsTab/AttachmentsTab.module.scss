@@ -1,0 +1,53 @@
+.dropZoneWrapper {
+    position: relative;
+    padding: 12px;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+    background: #fafafa;
+}
+
+.customDragger {
+    padding: 24px 0;
+    background: transparent !important;
+    border: none !important;
+}
+
+.plusButton {
+    position: absolute;
+    top: 7px;
+    right: 5px;
+    font-size: 20px;
+    color: #666;
+
+}
+
+.title {
+    padding-bottom: 20px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+:global(.ant-btn-primary.yellowBtn) {
+    background-color: #ecd102 !important;
+    border-color: #ecd102 !important;
+    color: #000 !important;
+    transition:
+        background-color 0.2s ease,
+        transform 0.1s ease,
+        box-shadow 0.2s ease;
+}
+
+:global(.ant-btn-primary.yellowBtn:hover),
+:global(.ant-btn-primary.yellowBtn:focus) {
+    background-color: #d4c002 !important;
+    border-color: #d4c002 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+:global(.ant-btn-primary.yellowBtn:active) {
+    background-color: #c2b002 !important;
+    border-color: #c2b002 !important;
+    transform: translateY(0);
+    box-shadow: none;
+}

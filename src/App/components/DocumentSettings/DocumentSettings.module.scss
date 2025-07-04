@@ -1,0 +1,85 @@
+.wrapper {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+h1 {
+    font-size: 25px;
+    margin-bottom: 40px;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-stretch: condensed;
+    letter-spacing: -0.5px;
+    color: rgba(0, 0, 0, 0.866);
+}
+
+.cardContainer {
+    position: relative;
+    margin: 10px;
+    width: calc(100% - 20px);
+    min-height: 57vh;
+    height: auto;
+    background: #ffffff;
+    border: 3px solid #ead404;
+    border-top: 8px solid #ead404;
+    border-radius: 15px;
+    padding: 16px;
+    box-sizing: border-box;
+    overflow: auto;
+    overflow: visible;
+}
+
+.tabsWrapper {
+    position: relative;
+    top: -47px;
+    padding: 0 16px;
+    z-index: 1;
+
+    /* Сброс отступов у списка табов и самих табов */
+    :global(.ant-tabs-card .ant-tabs-nav .ant-tabs-nav-list),
+    :global(.ant-tabs-card .ant-tabs-nav .ant-tabs-tab) {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    :global(.ant-tabs-card .ant-tabs-nav .ant-tabs-tab:not(:last-child)) {
+        margin-right: 2px !important;
+    }
+
+    /* Обычные (неактивные) табы */
+    :global(.ant-tabs-card .ant-tabs-nav .ant-tabs-tab) {
+        background: #626c6e !important;
+        border: 1px solid #626c6e !important;
+        border-bottom: none !important;
+        border-radius: 4px 4px 0 0 !important;
+        z-index: 1;
+    }
+
+    /* Активная вкладка */
+    :global(.ant-tabs-card .ant-tabs-nav .ant-tabs-tab-active) {
+        background: #ead404 !important;
+        border: 1px solid #ead404 !important;
+        border-bottom: none !important;
+        border-radius: 4px 4px 0 0 !important;
+        z-index: 2;
+    }
+
+    /* Текст внутри таба */
+    :global(.ant-tabs-card .ant-tabs-nav .ant-tabs-tab .ant-tabs-tab-btn) {
+        padding: 4px 12px !important;
+        font-weight: 600 !important;
+    }
+
+    :global(.ant-tabs-card .ant-tabs-nav .ant-tabs-tab:not(.ant-tabs-tab-active) .ant-tabs-tab-btn) {
+        color: #fff !important;
+    }
+
+    :global(.ant-tabs-card .ant-tabs-nav .ant-tabs-tab-active .ant-tabs-tab-btn) {
+        color: #000 !important;
+    }
+
+    /* Убираем стандартную линию под табами */
+    :global(.ant-tabs-card .ant-tabs-nav::before) {
+        border-bottom: none !important;
+    }
+}

@@ -1,0 +1,26 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    letter-spacing: 0.03em;
+}
+
+.row {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebarWrap {
+    background: #eeeeee
+}
+
+
+.settingsWrap {
+    flex: 2;
+    background: #eeeeee
+}
+
+.documentWrap {
+    flex: 2;
+    background: #eeeeee;
+}
