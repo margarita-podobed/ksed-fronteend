@@ -1,14 +1,22 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-
 export const fetchDocument = createAsyncThunk(
   'document/fetchById',
-  async ({ ticket, t, nodeRef }, thunkAPI) => {
-    const url = `/alfresco/service/mobile2/document`
-      + `?alf_ticket=${encodeURIComponent(ticket)}`
-      + `&t=${encodeURIComponent(t)}`
-      + `&unix=true`
-      + `&nodeRef=${encodeURIComponent(nodeRef)}`;
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const ticket = 'TICKET_66f55003d3c16acd828f7420a643ac608c7acfd2'
+    //state.auth.ticket;
+    const t = '1751359116169'
+    const nodeRef = 'workspace://SpacesStore/bac81136-db24-45b8-8f5d-f4df7012eaae'
+    if (!ticket) {
+      return thunkAPI.rejectWithValue('Не найден ticket в авторизации');
+    }
+
+    const url = `/alfresco/service/mobile2/document` +
+      `?alf_ticket=${encodeURIComponent(ticket)}` +
+      `&t=${encodeURIComponent(t)}` +
+      `&unix=true` +
+      `&nodeRef=${encodeURIComponent(nodeRef)}`;
 
     const response = await fetch(url, {
       method: 'GET',
@@ -36,6 +44,11 @@ const documentSlice = createSlice({
     error: null
   },
   reducers: {
+    clearDocument(state) {
+      state.data = null;
+      state.status = 'idle';
+      state.error = null;
+    }
   },
   extraReducers: builder => {
     builder
@@ -54,4 +67,5 @@ const documentSlice = createSlice({
   }
 });
 
+export const { clearDocument } = documentSlice.actions;
 export default documentSlice.reducer;

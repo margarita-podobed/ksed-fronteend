@@ -1,30 +1,35 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+
 export const login = createAsyncThunk(
   'auth/login',
-  async ({ username, password }, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
       const response = await fetch(
-        'http://172.30.48.66:8081/alfresco/s/api/login?',
+        '/alfresco/s/api/login?',
         {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ username, password }),
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: 'bykovvv',
+            password: 'Qwer1234'
+          }),
           redirect: 'follow'
         }
       );
-
       if (!response.ok) {
         const text = await response.text();
         return thunkAPI.rejectWithValue(text);
       }
-
-      const resultText = await response.text();
-      return resultText;
+      // читаем JSON, достаём data.ticket
+      const json = await response.json();
+      const ticket = json.data?.ticket;
+      if (!ticket) {
+        return thunkAPI.rejectWithValue('В ответе нет data.ticket');
+      }
+      return ticket;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(err.toString());
     }
   }
 );
@@ -32,13 +37,13 @@ export const login = createAsyncThunk(
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    token: null,     
-    status: 'idle', 
+    ticket: null,
+    status: 'idle',
     error: null
   },
   reducers: {
     logout(state) {
-      state.token = null;
+      state.ticket = null;
       state.status = 'idle';
       state.error = null;
     }
@@ -51,7 +56,7 @@ const authSlice = createSlice({
       })
       .addCase(login.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.token = action.payload; 
+        state.ticket = action.payload;
       })
       .addCase(login.rejected, (state, action) => {
         state.status = 'failed';

@@ -1,18 +1,13 @@
-// import 'D:ksed-frontend\frontendsrcAppstyle.css';
-// import { ConfigProvider } from 'antd';
-// import ruRU from 'antd/locale/ru_RU';
+import LoginButton from './components/LoginButton/LoginButton';
 import ApprovalCard from './pages/ApprovalCard/ApprovalCard';
-// import Router from './routes';
 
 
 const App = () => {
   return (
-    // <ConfigProvider locale={ruRU}>
     <div>
-      {/* <Router /> */}
+      <LoginButton/>
       <ApprovalCard />
     </div>
-    // </ConfigProvider>
   );
 };
 

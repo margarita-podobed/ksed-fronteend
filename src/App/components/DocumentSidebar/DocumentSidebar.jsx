@@ -26,7 +26,7 @@ const DocumentSidebar = ({ type, ticket, t, nodeRef }) => {
 
   useEffect(() => {
     if (ticket && t && nodeRef) {
-      dispatch(fetchDocument({ ticket, t, nodeRef }));
+      dispatch(fetchDocument());
     }
   }, [ticket, t, nodeRef, dispatch]);
 

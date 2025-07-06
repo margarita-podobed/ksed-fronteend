@@ -24,11 +24,7 @@ const DocumentSettings = ({ type }) => {
 
   useEffect(() => {
     dispatch(
-      fetchDocument({
-        ticket: 'TICKET_d07ec616998fc7aca63332acfb2be0cd6f0cc643',
-        t: '1751359116169',
-        nodeRef: 'workspace://SpacesStore/bac81136-db24-45b8-8f5d-f4df7012eaae',
-      })
+      fetchDocument()
     );
   }, [dispatch]);
 
