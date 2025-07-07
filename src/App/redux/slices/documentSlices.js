@@ -4,7 +4,7 @@ export const fetchDocument = createAsyncThunk(
   'document/fetchById',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    const ticket = 'TICKET_66f55003d3c16acd828f7420a643ac608c7acfd2'
+    const ticket = 'TICKET_5b5c5a67bdd2cf4fb24ae3cbb65dde9497ccbfb8'
     //state.auth.ticket;
     const t = '1751359116169'
     const nodeRef = 'workspace://SpacesStore/bac81136-db24-45b8-8f5d-f4df7012eaae'
