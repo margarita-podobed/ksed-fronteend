@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Space, Typography, Button, Upload, Modal } from 'antd';
 import { PlusOutlined, InboxOutlined, CloseOutlined } from '@ant-design/icons';
-import styles from './AttachmentsTab.module.scss';
+import styles from './AttachmentsEditor.module.scss';
 
 const { Text } = Typography;
 const { Dragger } = Upload;
@@ -11,7 +11,7 @@ const secondTabConfig = [
   { key: 'info', title: 'Документы для информации' },
 ];
 
-const AttachmentsTab = ({ uploadProps }) => {
+const AttachmentsEditor = ({ uploadProps }) => {
   const [modalVisible, setModalVisible] = useState(null);
 
   const handlePlusClick = (key) => setModalVisible(key);
@@ -80,4 +80,4 @@ const AttachmentsTab = ({ uploadProps }) => {
   );
 };
 
-export default AttachmentsTab;
+export default AttachmentsEditor;

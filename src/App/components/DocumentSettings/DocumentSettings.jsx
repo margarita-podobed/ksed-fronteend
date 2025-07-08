@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './DocumentSettings.module.scss';
 import attributeFields from './settingsConfig';
 import AttributesTab from './AttributesTab/AttributesTab';
-import AttachmentsTab from './AttachmentsTab/AttachmentsTab';
 import ApprovalTab from './ApprovalTab/ApprovalTab';
 import AttributesTabReadOnly from './AttributesTab/AttributesTabReadOnly/AttributesTabReadOnly';
 import { fetchDocument } from '../../redux/slices/documentSlices';
+import AttachmentsViewer from './AttachmentsTab/AttachmentsViewer/AttachmentsViewer';
+import AttachmentsEditor from './AttachmentsTab/AttachmentsEditor/AttachmentsEditor';
 
 const { TabPane } = Tabs;
 
@@ -23,9 +24,7 @@ const DocumentSettings = ({ type }) => {
   const title = data?.documentTitle || data?.title || '';
 
   useEffect(() => {
-    dispatch(
-      fetchDocument()
-    );
+    dispatch(fetchDocument());
   }, [dispatch]);
 
   const [values, setValues] = React.useState({});
@@ -40,11 +39,11 @@ const DocumentSettings = ({ type }) => {
     closeModal();
   };
 
-  const handlePlusClick = (key) => setModalVisible(key);
+  // const handlePlusClick = (key) => setModalVisible(key);
   const handleModalCancel = () => setModalVisible(null);
 
-  const uploadProps = {
-  };
+  // const uploadProps = {
+  // };
 
   return (
     <div className={styles.wrapper}>
@@ -65,10 +64,11 @@ const DocumentSettings = ({ type }) => {
               )}
             </TabPane>
             <TabPane tab='Вложения' key='2'>
-              <AttachmentsTab
-                uploadProps={uploadProps}
-                handlePlusClick={handlePlusClick}
-              />
+              {type === 'viewing' ? (
+                <AttachmentsViewer />
+              ) : (
+                <AttachmentsEditor />
+              )}
             </TabPane>
             <TabPane tab='Согласование' key='3'>
               <ApprovalTab />
@@ -103,8 +103,7 @@ const DocumentSettings = ({ type }) => {
             onCancel={handleModalCancel}
             footer={null}
             closeIcon={<CloseOutlined style={{ color: '#000' }} />}
-          >
-          </Modal>
+          ></Modal>
         </div>
       </div>
     </div>

@@ -208,7 +208,7 @@ const DocumentSidebar = ({ type = 'viewing', t, nodeRef }) => {
     <div
       style={{
         position: 'relative',
-        minHeight: '100vh',
+        height: '100vh',
         width: collapsed ? 32 : 300,
         transition: 'width 0.2s ease',
         overflow: 'visible',

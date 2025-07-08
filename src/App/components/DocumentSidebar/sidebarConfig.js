@@ -218,14 +218,12 @@ const SIDEBAR_CONFIG = {
                     { key: 'statusName', label: 'Статус:' }
                 ]
             },
-            { id: 'attachments', title: 'Вложения', type: 'list', icon: <PaperClipOutlined />, items: [] },
-            { id: 'reviewItems', title: 'Поручения', type: 'list', icon: <TeamOutlined />, items: [] },
+            // { id: 'attachments', title: 'Вложения', type: 'list', icon: <PaperClipOutlined />, items: [] },
+            // { id: 'reviewItems', title: 'Поручения', type: 'list', icon: <TeamOutlined />, items: [] },
             { id: 'connections', title: 'Связи', type: 'list', icon: <LinkOutlined />, items: [] },
-            { id: 'attended', title: 'Участники документа', type: 'list', icon: <UsergroupAddOutlined />, items: [] },
             { id: 'tags', title: 'Метки', type: 'list', icon: <TagsOutlined />, items: [] },
-            { id: 'history', title: 'История', type: 'list', icon: <HistoryOutlined />, items: [] },
-            { id: 'printForms', title: 'Печатные формы', type: 'list', icon: <FileTextOutlined />, items: [] },
-            { id: 'comments', title: 'Комментарии', type: 'list', icon: <MessageOutlined />, items: [] }
+            // { id: 'history', title: 'История', type: 'list', icon: <HistoryOutlined />, items: [] },
+            // { id: 'printForms', title: 'Печатные формы', type: 'list', icon: <FileTextOutlined />, items: [] },
         ]
     }
 };
